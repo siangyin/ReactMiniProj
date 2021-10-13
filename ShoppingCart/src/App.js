@@ -1,4 +1,3 @@
-// import useState
 import React, { useState } from "react";
 import "./styles.css";
 import AllTheThings from "./components/AllTheThings";
@@ -7,25 +6,36 @@ import MyShoppingCart from "./components/MyShoppingCart";
 import productsArr from "./products";
 
 export default function App() {
-	const product = productsArr.map((item, i) => {
-		return (
-			<li key={item.name + item.price} id={i} onClick={handleAddToCart}>
-				{item.name} - ${item.price}
-			</li>
-		);
-	});
+	function list(arr, cb) {
+		const listing = arr.map((item, i) => {
+			return (
+				<li key={item.name + item.price + i} id={i} onClick={cb}>
+					{item.name} - ${item.price}
+				</li>
+			);
+		});
+		return listing;
+	}
 
-	const [products, setProducts] = useState(product);
+	const [products, setProducts] = useState(productsArr);
 	const [cart, setCart] = useState([]);
 
 	// create an addToCart function that takes in a product as a param
 	// using the ...spread operator add the product to the cart array
 
-	function handleAddToCart(e) {
-		const index = e.target.id;
-		console.log(productsArr[index]);
-		setCart(cart.push(productsArr[index]));
+	function addToCart(prod) {
+		setCart([...cart, prod]);
 		console.log(cart);
+	}
+
+	function handleAddClick(e) {
+		const index = e.target.id;
+		products[index].hasOwnProperty("Qty")
+			? (products[index].Qty += 1)
+			: (products[index].Qty = 1);
+		const obj = { name: products[index].name, price: products[index].price };
+		console.log(obj);
+		addToCart(obj);
 	}
 
 	// create an removeFromCart function that takes in an index as a param
@@ -36,12 +46,8 @@ export default function App() {
 			<h1>Big Time Shopping</h1>
 			{/* <Form /> */}
 			<div className="products">
-				<AllTheThings>{products}</AllTheThings>
-				{cart.length === 0 ? (
-					<MyShoppingCart />
-				) : (
-					<MyShoppingCart>{cart}</MyShoppingCart>
-				)}
+				<AllTheThings>{list(products, handleAddClick)}</AllTheThings>
+				<MyShoppingCart>{list(cart, handleAddClick)}</MyShoppingCart>
 			</div>
 		</div>
 	);
