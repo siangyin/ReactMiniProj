@@ -11,7 +11,7 @@ export default function App() {
 		newProdList.push({
 			name: productsArr[key].name,
 			price: productsArr[key].price,
-			Qty: 0,
+			Qty: 10,
 		});
 	}
 
@@ -38,10 +38,9 @@ export default function App() {
 
 	function handleAddClick(e) {
 		const index = e.target.id;
-		// setProducts((prevProd) => [...prevProd, (products[index].Qty += 1)]);
 		products[index].hasOwnProperty("Qty")
-			? (products[index].Qty += 1)
-			: (products[index].Qty = 1);
+			? (products[index].Qty -= 1)
+			: (products[index].Qty = 10);
 		const obj = { name: products[index].name, price: products[index].price };
 		addToCart(obj);
 	}
