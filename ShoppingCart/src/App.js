@@ -25,7 +25,6 @@ export default function App() {
 
 	function addToCart(prod) {
 		setCart([...cart, prod]);
-		console.log(cart);
 	}
 
 	function handleAddClick(e) {
@@ -34,12 +33,24 @@ export default function App() {
 			? (products[index].Qty += 1)
 			: (products[index].Qty = 1);
 		const obj = { name: products[index].name, price: products[index].price };
-		console.log(obj);
 		addToCart(obj);
 	}
 
 	// create an removeFromCart function that takes in an index as a param
 	// using Array.filter remove create a new array where that item is removed
+
+	function removeFromCart(i) {
+		console.log(i);
+		const newCart = cart.filter((element, idx) => {
+			return i != idx;
+		});
+		setCart(newCart);
+	}
+
+	function handleRemove(e) {
+		const i = e.currentTarget.id;
+		removeFromCart(i);
+	}
 
 	return (
 		<div className="App">
@@ -47,7 +58,7 @@ export default function App() {
 			{/* <Form /> */}
 			<div className="products">
 				<AllTheThings>{list(products, handleAddClick)}</AllTheThings>
-				<MyShoppingCart>{list(cart, handleAddClick)}</MyShoppingCart>
+				<MyShoppingCart>{list(cart, handleRemove)}</MyShoppingCart>
 			</div>
 		</div>
 	);
