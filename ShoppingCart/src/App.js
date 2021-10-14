@@ -6,6 +6,15 @@ import MyShoppingCart from "./components/MyShoppingCart";
 import productsArr from "./products";
 
 export default function App() {
+	const newProdList = [];
+	for (let key in productsArr) {
+		newProdList.push({
+			name: productsArr[key].name,
+			price: productsArr[key].price,
+			Qty: 0,
+		});
+	}
+
 	function list(arr, cb) {
 		const listing = arr.map((item, i) => {
 			return (
@@ -17,7 +26,7 @@ export default function App() {
 		return listing;
 	}
 
-	const [products, setProducts] = useState(productsArr);
+	const [products, setProducts] = useState(newProdList);
 	const [cart, setCart] = useState([]);
 
 	// create an addToCart function that takes in a product as a param
@@ -34,13 +43,13 @@ export default function App() {
 			: (products[index].Qty = 1);
 		const obj = { name: products[index].name, price: products[index].price };
 		addToCart(obj);
+		console.log(products);
 	}
 
 	// create an removeFromCart function that takes in an index as a param
 	// using Array.filter remove create a new array where that item is removed
 
 	function removeFromCart(i) {
-		console.log(i);
 		const newCart = cart.filter((element, idx) => {
 			return i != idx;
 		});
