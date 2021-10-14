@@ -38,9 +38,10 @@ export default function App() {
 
 	function handleAddClick(e) {
 		const index = e.target.id;
-		products[index].hasOwnProperty("Qty")
-			? (products[index].Qty += 1)
-			: (products[index].Qty = 1);
+		setProducts([...products, (products[index].Qty += 1)]);
+		// products[index].hasOwnProperty("Qty")
+		// 	? (products[index].Qty += 1)
+		// 	: (products[index].Qty = 1);
 		const obj = { name: products[index].name, price: products[index].price };
 		addToCart(obj);
 		console.log(products);
