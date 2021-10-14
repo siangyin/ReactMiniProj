@@ -38,7 +38,7 @@ export default function App() {
 
 	function handleAddClick(e) {
 		const index = e.target.id;
-		// setProducts([...products, (products[index].Qty += 1)]);
+		// setProducts((prevProd) => [...prevProd, (products[index].Qty += 1)]);
 		products[index].hasOwnProperty("Qty")
 			? (products[index].Qty += 1)
 			: (products[index].Qty = 1);
