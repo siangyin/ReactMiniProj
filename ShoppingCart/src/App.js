@@ -15,6 +15,9 @@ export default function App() {
 		});
 	}
 
+	const [products, setProducts] = useState(newProdList);
+	const [cart, setCart] = useState([]);
+
 	function list(arr, cb) {
 		const listing = arr.map((item, i) => {
 			return (
@@ -26,9 +29,6 @@ export default function App() {
 		return listing;
 	}
 
-	const [products, setProducts] = useState(newProdList);
-	const [cart, setCart] = useState([]);
-
 	// create an addToCart function that takes in a product as a param
 	// using the ...spread operator add the product to the cart array
 
@@ -38,13 +38,12 @@ export default function App() {
 
 	function handleAddClick(e) {
 		const index = e.target.id;
-		setProducts([...products, (products[index].Qty += 1)]);
-		// products[index].hasOwnProperty("Qty")
-		// 	? (products[index].Qty += 1)
-		// 	: (products[index].Qty = 1);
+		// setProducts([...products, (products[index].Qty += 1)]);
+		products[index].hasOwnProperty("Qty")
+			? (products[index].Qty += 1)
+			: (products[index].Qty = 1);
 		const obj = { name: products[index].name, price: products[index].price };
 		addToCart(obj);
-		console.log(products);
 	}
 
 	// create an removeFromCart function that takes in an index as a param
@@ -52,7 +51,7 @@ export default function App() {
 
 	function removeFromCart(i) {
 		const newCart = cart.filter((element, idx) => {
-			return i != idx;
+			return parseInt(i) !== idx;
 		});
 		setCart(newCart);
 	}
