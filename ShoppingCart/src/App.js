@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 import AllTheThings from "./components/AllTheThings";
 import MyShoppingCart from "./components/MyShoppingCart";
-// import Form from "./components/Form";
+import Form from "./components/Form";
 import productsArr from "./products";
 
 export default function App() {
@@ -11,7 +11,8 @@ export default function App() {
 		newProdList.push({
 			name: productsArr[key].name,
 			price: productsArr[key].price,
-			Qty: 10,
+			Qty: 0,
+			description: productsArr[key].description,
 		});
 	}
 
@@ -22,7 +23,8 @@ export default function App() {
 		const listing = arr.map((item, i) => {
 			return (
 				<li key={item.name + item.price + i} id={i} onClick={cb}>
-					{item.name} - ${item.price}
+					{item.name} - ${item.price} <br />
+					{item.description}
 				</li>
 			);
 		});
@@ -39,8 +41,8 @@ export default function App() {
 	function handleAddClick(e) {
 		const index = e.target.id;
 		products[index].hasOwnProperty("Qty")
-			? (products[index].Qty -= 1)
-			: (products[index].Qty = 10);
+			? (products[index].Qty += 1)
+			: (products[index].Qty = 1);
 		const obj = { name: products[index].name, price: products[index].price };
 		addToCart(obj);
 	}
@@ -63,7 +65,7 @@ export default function App() {
 	return (
 		<div className="App">
 			<h1>Big Time Shopping</h1>
-			{/* <Form /> */}
+			<Form />
 			<div className="products">
 				<AllTheThings>{list(products, handleAddClick)}</AllTheThings>
 				<MyShoppingCart>{list(cart, handleRemove)}</MyShoppingCart>
