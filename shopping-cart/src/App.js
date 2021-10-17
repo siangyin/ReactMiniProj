@@ -1,4 +1,3 @@
-// import useState
 import React, { useState } from "react";
 import "./styles.css";
 import AllTheThings from "./components/AllTheThings";
