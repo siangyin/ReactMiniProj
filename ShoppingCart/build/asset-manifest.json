@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ReactMiniProj/ShoppingCart/static/css/main.c506c6ee.chunk.css",
+    "main.js": "/ReactMiniProj/ShoppingCart/static/js/main.1c31f0e3.chunk.js",
+    "main.js.map": "/ReactMiniProj/ShoppingCart/static/js/main.1c31f0e3.chunk.js.map",
+    "runtime~main.js": "/ReactMiniProj/ShoppingCart/static/js/runtime~main.6ee99e82.js",
+    "runtime~main.js.map": "/ReactMiniProj/ShoppingCart/static/js/runtime~main.6ee99e82.js.map",
+    "static/js/2.eee01206.chunk.js": "/ReactMiniProj/ShoppingCart/static/js/2.eee01206.chunk.js",
+    "static/js/2.eee01206.chunk.js.map": "/ReactMiniProj/ShoppingCart/static/js/2.eee01206.chunk.js.map",
+    "index.html": "/ReactMiniProj/ShoppingCart/index.html",
+    "precache-manifest.49953d176145ba6c535860a29043caf3.js": "/ReactMiniProj/ShoppingCart/precache-manifest.49953d176145ba6c535860a29043caf3.js",
+    "service-worker.js": "/ReactMiniProj/ShoppingCart/service-worker.js",
+    "static/css/main.c506c6ee.chunk.css.map": "/ReactMiniProj/ShoppingCart/static/css/main.c506c6ee.chunk.css.map"
+  }
+}
