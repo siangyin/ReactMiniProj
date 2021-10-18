@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
-import AllTheThings from "./components/AllTheThings";
-import MyShoppingCart from "./components/MyShoppingCart";
-import Form from "./components/Form";
+import AllProducts from "./components/AllTheThings/AllProducts";
+import ShoppingCart from "./components/MyShoppingCart/ShoppingCart";
+import Form from "./components/Form/Form";
 import productsArr from "./products";
 
 export default function App() {
@@ -51,8 +51,8 @@ export default function App() {
 			<h1>Big Time Shopping</h1>
 			<Form />
 			<div className="products">
-				<AllTheThings>{list(products, handleAddClick)}</AllTheThings>
-				<MyShoppingCart>{list(cart, handleRemove)}</MyShoppingCart>
+				<AllProducts>{list(products, handleAddClick)}</AllProducts>
+				<ShoppingCart>{list(cart, handleRemove)}</ShoppingCart>
 			</div>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import React from "react";
 
-function AllTheThings(props) {
+function AllProducts(props) {
 	return (
 		<div className="AllTheThings">
 			<h2>Put these in your cart!</h2>
@@ -9,4 +9,4 @@ function AllTheThings(props) {
 	);
 }
 
-export default AllTheThings;
+export default AllProducts;
