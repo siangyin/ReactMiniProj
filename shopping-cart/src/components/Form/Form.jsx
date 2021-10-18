@@ -48,6 +48,11 @@ function Form(props) {
 				backgroundColor: "#fdffb6",
 				border: "1px solid red",
 			});
+		} else {
+			setHightlight({
+				backgroundColor: "white",
+				border: "1px solid grey",
+			});
 		}
 	}
 	return (
