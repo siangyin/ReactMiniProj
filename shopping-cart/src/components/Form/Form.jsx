@@ -24,13 +24,13 @@ function Form(props) {
 		e.preventDefault();
 		const objSet = { name: name, price: price, description: description };
 		console.log("yeah submitted");
-		return console.log(objSet);
+		// return console.log(objSet);
 	}
 
 	return (
 		<div className="Form">
 			<h2>Enter new item here</h2>
-			<form onSubmit={newEntryItem}>
+			<form onSubmit={props.getNewObj}>
 				<input
 					type="text"
 					value={name}

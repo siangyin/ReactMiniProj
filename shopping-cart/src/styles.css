@@ -7,11 +7,11 @@
 
 /* color theme https://coolors.co/c5e0eb-919098-897c80-223843-a80874 */
 :root {
-	--modern-powder-blue: #c5e0eb;
-	--blue-greige: #919098;
-	--grape-putty: #897c80;
-	--royal-midnight: #223843;
-	--dark-fuchsia: #a80874;
+	--modern-powder-blue: #eefaff;
+	--blue-greige: #dcdf2f;
+	--grape-putty: #af68a7;
+	--royal-midnight: #101a35;
+	--dark-fuchsia: #bb0980;
 }
 
 body {
@@ -83,7 +83,8 @@ button {
 	padding: 0.1em;
 	height: 25px;
 	font-family: "Poppins", sans-serif;
-	background: var(--modern-powder-blue);
+	background: var(--royal-midnight);
+	color: #eefaff;
 }
 
 .MyShoppingCart {

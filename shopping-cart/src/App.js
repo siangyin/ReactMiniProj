@@ -46,9 +46,10 @@ export default function App() {
 		removeFromCart(i);
 	}
 
-	function showNewObj(obj) {
+	function showNewObj(e) {
+		e.preventDefault();
 		console.log("in app js");
-		return console.log(obj);
+		// return console.log(obj);
 	}
 
 	return (
