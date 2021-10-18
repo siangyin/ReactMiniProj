@@ -46,16 +46,21 @@ export default function App() {
 		removeFromCart(i);
 	}
 
-	function showNewObj(e) {
-		e.preventDefault();
+	function getNewObj(obj) {
+		setProducts([obj, ...products]);
 		console.log("in app js");
-		// return console.log(obj);
+		console.log(obj);
 	}
 
 	return (
 		<div className="App">
 			<h1>Big Time Shopping</h1>
-			<Form getNewObj={showNewObj} />
+
+			<div className="Form">
+				<h2>Enter new item here</h2>
+				<Form onSaveObj={getNewObj} />
+			</div>
+
 			<div className="products">
 				<AllProducts>{list(products, handleAddClick)}</AllProducts>
 				<ShoppingCart>{list(cart, handleRemove)}</ShoppingCart>
