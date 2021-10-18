@@ -83,8 +83,12 @@ button {
 	padding: 0.1em;
 	height: 25px;
 	font-family: "Poppins", sans-serif;
-	background: var(--royal-midnight);
+	background: var(--dark-fuchsia);
 	color: #eefaff;
+}
+
+button:disabled {
+	background: #ccc;
 }
 
 .MyShoppingCart {

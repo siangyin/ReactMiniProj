@@ -4,6 +4,10 @@ function Form(props) {
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("");
 	const [description, setDescription] = useState("");
+	const [highlight, setHightlight] = useState({
+		backgroundColor: "white",
+		border: "1px solid grey",
+	});
 
 	function onChangeProductHandler(e) {
 		const value = e.target.value;
@@ -28,6 +32,24 @@ function Form(props) {
 		return setDescription(""), setPrice(""), setName("");
 	}
 
+	let btnTag = (
+		<button type="submit" disabled>
+			Submit
+		</button>
+	);
+	if (name && price && description) {
+		btnTag = <button type="submit">Submit</button>;
+	}
+
+	function handleKeyUp(e) {
+		console.log(e.target.value);
+		if (e.target.value === "") {
+			setHightlight({
+				backgroundColor: "#fdffb6",
+				border: "1px solid red",
+			});
+		}
+	}
 	return (
 		<form onSubmit={submitHandler}>
 			<input
@@ -37,6 +59,8 @@ function Form(props) {
 				placeholder="product name"
 				maxLength="30"
 				onChange={onChangeProductHandler}
+				onBlur={handleKeyUp}
+				style={highlight}
 			></input>
 			<input
 				type="number"
@@ -46,14 +70,18 @@ function Form(props) {
 				min="0.01"
 				step="0.01"
 				onChange={onChangePriceHandler}
+				onBlur={handleKeyUp}
+				style={highlight}
 			></input>
 			<textarea
 				name="description"
 				value={description}
 				placeholder="product description"
 				onChange={onChangeDescriptionHandler}
+				onBlur={handleKeyUp}
+				style={highlight}
 			></textarea>
-			<button type="submit">Submit</button>
+			{btnTag}
 		</form>
 	);
 }

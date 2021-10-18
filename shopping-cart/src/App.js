@@ -22,7 +22,9 @@ export default function App() {
 	}
 
 	function addToCart(prod) {
-		setCart([...cart, prod]);
+		setCart((prevData) => {
+			return [...prevData, prod];
+		});
 	}
 
 	function handleAddClick(e) {
@@ -47,7 +49,9 @@ export default function App() {
 	}
 
 	function getNewObj(obj) {
-		setProducts([obj, ...products]);
+		setProducts((prevData) => {
+			return [obj, ...prevData];
+		});
 		console.log("in app js");
 		console.log(obj);
 	}
