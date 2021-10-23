@@ -1,12 +1,19 @@
 import React from "react";
-import "./App.css";
+import "./index.css";
+import Header from "./components/Header";
+import Input from "./components/Input";
+import Gallery from "./components/Gallery";
 
 function App() {
+	// https://tenor.com/view/so-cute-gif-18039115
+
+	//input get the search key from there, and button handler
+
 	return (
 		<div className="App">
-			<header className="App-header">
-				<h2>Random Gif Generator</h2>
-			</header>
+			<Header></Header>
+			<Input></Input>
+			<Gallery></Gallery>
 		</div>
 	);
 }
