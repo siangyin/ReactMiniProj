@@ -1,0 +1,26 @@
+/* .App {
+	position: relative;
+} */
+
+.App {
+	width: 80%;
+	height: 80%;
+	overflow: auto;
+	margin: 5%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border: 5px lightskyblue solid;
+	border-radius: 20px;
+	font-size: larger;
+}
+
+.App-header {
+	background-color: lightskyblue;
+	color: white;
+	padding: 5px;
+	text-align: center;
+	margin: 0px;
+}
