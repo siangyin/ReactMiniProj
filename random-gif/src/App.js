@@ -9,10 +9,17 @@ function App() {
 
 	//input get the search key from there, and button handler
 
+	function handleSavedWord(str) {
+		if (str === "random") {
+			console.log("find random gif");
+		} else {
+			console.log(`find ${str} gif`);
+		}
+	}
 	return (
 		<div className="App">
 			<Header></Header>
-			<Input></Input>
+			<Input onSavedWord={handleSavedWord} />
 			<Gallery></Gallery>
 		</div>
 	);

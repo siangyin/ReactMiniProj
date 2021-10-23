@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-function Input() {
+function Input(props) {
 	const [keyword, setKeyword] = useState("");
 	const inputRef = useRef();
 
@@ -11,14 +11,19 @@ function Input() {
 	function handleClick(e) {
 		e.preventDefault();
 		if (e.target.name === "find") {
-			setKeyword(inputRef.current.value);
+			const str = inputRef.current.value;
+			setKeyword(str);
+			props.onSavedWord(str);
+			inputRef.current.value = "";
 		}
 
 		if (e.target.name === "pick") {
-			setKeyword("random");
+			const str = "random";
+			setKeyword(str);
+			props.onSavedWord(str);
 		}
-		console.log(e.target.name);
-		console.log(keyword);
+
+		return setKeyword("");
 	}
 
 	return (
