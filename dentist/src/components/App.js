@@ -29,6 +29,7 @@ const App = () => {
 					<Route path="/contact">
 						<Contact />
 					</Route>
+					<Redirect to="/" />
 				</Switch>
 			</div>
 		</div>
