@@ -6,11 +6,14 @@ function Input(props) {
 
 	useEffect(() => {
 		console.log("was rendered");
-	});
+	}, [props.onSavedWord]);
 
 	function handleClick(e) {
 		e.preventDefault();
 		if (e.target.name === "find") {
+			if (inputRef.current.value.trim().length === 0) {
+				props.onSavedWord("");
+			}
 			const str = inputRef.current.value;
 			setKeyword(str);
 			props.onSavedWord(str);

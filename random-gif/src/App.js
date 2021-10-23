@@ -10,8 +10,9 @@ function App() {
 
 	//input get the search key from there, and button handler
 	const [alert, setAlert] = useState(false);
+
 	function handleSavedWord(str) {
-		if (str.trim.length === 0) {
+		if (str.trim().length === 0) {
 			setAlert(true);
 		} else if (str === "random") {
 			console.log("find random gif");
