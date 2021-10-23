@@ -2,7 +2,7 @@ import React from "react";
 import Home from "./Home";
 import Contact from "./Contact";
 import Procedures from "./Procedures";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, Link, Redirect } from "react-router-dom";
 
 const App = () => {
 	return (
