@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ReactMiniProj/dentist/build/static/css/main.a704f12f.chunk.css",
-    "main.js": "/ReactMiniProj/dentist/build/static/js/main.13fbe3a1.chunk.js",
-    "main.js.map": "/ReactMiniProj/dentist/build/static/js/main.13fbe3a1.chunk.js.map",
+    "main.js": "/ReactMiniProj/dentist/build/static/js/main.2baac307.chunk.js",
+    "main.js.map": "/ReactMiniProj/dentist/build/static/js/main.2baac307.chunk.js.map",
     "runtime~main.js": "/ReactMiniProj/dentist/build/static/js/runtime~main.b1f808c7.js",
     "runtime~main.js.map": "/ReactMiniProj/dentist/build/static/js/runtime~main.b1f808c7.js.map",
-    "static/js/2.6bc8302d.chunk.js": "/ReactMiniProj/dentist/build/static/js/2.6bc8302d.chunk.js",
-    "static/js/2.6bc8302d.chunk.js.map": "/ReactMiniProj/dentist/build/static/js/2.6bc8302d.chunk.js.map",
+    "static/js/2.cea732da.chunk.js": "/ReactMiniProj/dentist/build/static/js/2.cea732da.chunk.js",
+    "static/js/2.cea732da.chunk.js.map": "/ReactMiniProj/dentist/build/static/js/2.cea732da.chunk.js.map",
     "index.html": "/ReactMiniProj/dentist/build/index.html",
-    "precache-manifest.47beb349f590cc485a004b3658113803.js": "/ReactMiniProj/dentist/build/precache-manifest.47beb349f590cc485a004b3658113803.js",
+    "precache-manifest.78de5846e6663ac48f96a7f021674436.js": "/ReactMiniProj/dentist/build/precache-manifest.78de5846e6663ac48f96a7f021674436.js",
     "service-worker.js": "/ReactMiniProj/dentist/build/service-worker.js",
     "static/css/main.a704f12f.chunk.css.map": "/ReactMiniProj/dentist/build/static/css/main.a704f12f.chunk.css.map"
   }
