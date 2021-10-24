@@ -80,8 +80,7 @@ body {
 img {
 	border-radius: 1em;
 	object-fit: cover;
-	max-width: 50vw;
-	max-height: 80vh;
+	width: 20%;
 	margin-left: auto;
 	margin-right: auto;
 }
