@@ -81,6 +81,7 @@ img {
 	border-radius: 1em;
 	object-fit: cover;
 	max-width: 50vw;
+	max-height: 80vh;
 	margin-left: auto;
 	margin-right: auto;
 }
