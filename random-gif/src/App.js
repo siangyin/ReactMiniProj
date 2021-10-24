@@ -14,10 +14,10 @@ function App() {
 	const [alert, setAlert] = useState(false);
 	//.pagination.total_count
 	const APIkey = "lFwuMbf2H89fVRV23hXR8ogP7YsVryk7";
-	let search = "random";
-	let http = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=${search}&limit=50&offset=0&rating=g&lang=en`;
 
 	useEffect(() => {
+		let http = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=random&limit=50&offset=0&rating=g&lang=en`;
+
 		fetch(http)
 			.then((response) => {
 				return response.json();
@@ -37,7 +37,18 @@ function App() {
 			.catch((err) => {
 				console.log(err);
 			});
-	}, []);
+
+		if (keyword !== "random") {
+			const search = keyword.replaceAll(" ", "%20");
+			http = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=${search}&limit=50&offset=0&rating=g&lang=en`;
+			console.log(`new keyword search and api call for ${keyword}`);
+			const searchGIF = () => {
+				console.log(http);
+				console.log(keyword.trim());
+			};
+			searchGIF();
+		}
+	}, [keyword]);
 
 	function handleInputWord(str) {
 		if (str.trim().length === 0) {
@@ -45,8 +56,6 @@ function App() {
 		} else {
 			setKeyword(str);
 			setCurrGifUrl(allRandomGif[randIdx].src);
-			search = str;
-			console.log(http);
 		}
 	}
 
@@ -58,7 +67,6 @@ function App() {
 		setAlert(false);
 	}
 
-	console.log(`keyword stored: ${keyword}`);
 	return (
 		<div className="App">
 			{alert && <Alert handleOkay={hideAlert} />}
