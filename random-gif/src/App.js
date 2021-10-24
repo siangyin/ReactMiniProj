@@ -11,7 +11,7 @@ function App() {
 	const [keyword, setKeyword] = useState("");
 	const [allRandomGif, setAllRandomGif] = useState();
 	const [currGifUrl, setCurrGifUrl] = useState(
-		"http://images6.fanpop.com/image/photos/38600000/Ditto-pokemon-38620539-300-500.jpg"
+		"https://c.tenor.com/7NX24XoJX0MAAAAC/loading-fast.gif"
 	);
 	const [alert, setAlert] = useState(false);
 	const APIkey = "lFwuMbf2H89fVRV23hXR8ogP7YsVryk7";
