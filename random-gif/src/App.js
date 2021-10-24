@@ -5,62 +5,78 @@ import Input from "./components/Input";
 import RandButton from "./components/RandButton";
 import Gallery from "./components/Gallery";
 import Alert from "./components/Alert";
+import axios from "axios";
 
 function App() {
-	const [keyword, setKeyword] = useState("random");
+	const [keyword, setKeyword] = useState("");
 	const [allRandomGif, setAllRandomGif] = useState();
-	const randIdx = Math.floor(Math.random() * 50);
-	const [currGifUrl, setCurrGifUrl] = useState("");
+	const [currGifUrl, setCurrGifUrl] = useState(
+		"http://images6.fanpop.com/image/photos/38600000/Ditto-pokemon-38620539-300-500.jpg"
+	);
 	const [alert, setAlert] = useState(false);
-	//.pagination.total_count
 	const APIkey = "lFwuMbf2H89fVRV23hXR8ogP7YsVryk7";
+	let naming = "";
+
+	async function getRandGif() {
+		try {
+			const response = await axios.get(
+				`https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=random&limit=50&offset=0&rating=g&lang=en`
+			);
+			const objArr = response.data.data.map((obj) => {
+				return {
+					src: obj.images.original.url,
+					title: obj.title,
+					id: obj.id,
+				};
+			});
+			setAllRandomGif(objArr);
+		} catch (error) {
+			console.log(error.response.data);
+		}
+	}
+
+	async function searchGif(keyword) {
+		console.log(`search gif for ${keyword}`);
+		try {
+			const randIdx = Math.floor(Math.random() * 50);
+			const search = keyword.replaceAll(" ", "%20");
+			const response = await axios.get(
+				`https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=${search}&limit=50&offset=0&rating=g&lang=en`
+			);
+
+			const objArr = response.data.data.map((obj) => {
+				return {
+					src: obj.images.original.url,
+					title: obj.title,
+					id: obj.id,
+				};
+			});
+			console.log(objArr[randIdx].src);
+			setCurrGifUrl(objArr[randIdx].src);
+		} catch (error) {
+			console.log(error.response.data);
+		}
+	}
 
 	useEffect(() => {
-		let http = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=random&limit=50&offset=0&rating=g&lang=en`;
-
-		fetch(http)
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				const cleanData = data.data.map((obj) => {
-					return {
-						src: obj.images.original.url,
-						title: obj.title,
-						id: obj.id,
-					};
-				});
-
-				setCurrGifUrl(cleanData[randIdx].src);
-				setAllRandomGif(cleanData);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-
-		if (keyword !== "random") {
-			const search = keyword.replaceAll(" ", "%20");
-			http = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&q=${search}&limit=50&offset=0&rating=g&lang=en`;
-			console.log(`new keyword search and api call for ${keyword}`);
-			const searchGIF = () => {
-				console.log(http);
-				console.log(keyword.trim());
-			};
-			searchGIF();
-		}
-	}, [keyword]);
+		console.log(`rendering`);
+		getRandGif();
+	}, [keyword, naming]);
 
 	function handleInputWord(str) {
 		if (str.trim().length === 0) {
 			setAlert(true);
 		} else {
+			searchGif(str);
 			setKeyword(str);
-			setCurrGifUrl(allRandomGif[randIdx].src);
+			naming = str;
 		}
 	}
 
 	function randomClick() {
+		const randIdx = Math.floor(Math.random() * 50);
 		console.log("clicked random");
+		setCurrGifUrl(allRandomGif[randIdx].src);
 	}
 
 	function hideAlert(e) {

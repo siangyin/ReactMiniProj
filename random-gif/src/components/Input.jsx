@@ -1,25 +1,20 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 
 function Input(props) {
-	const inputRef = useRef();
+	const [inputValue, setInputValue] = useState("");
 
 	function handleClick(e) {
 		e.preventDefault();
-
-		if (e.target.name === "find") {
-			if (inputRef.current.value.trim().length === 0) {
-				props.onSavedWord("");
-			}
-			const str = inputRef.current.value;
-			props.onSavedWord(str);
-			inputRef.current.value = "";
+		if (inputValue.trim().length === 0) {
+			props.onSavedWord("");
 		}
-
-		if (e.target.name === "pick") {
-			const str = "random";
-			props.onSavedWord(str);
-		}
+		props.onSavedWord(inputValue);
+		setInputValue("");
 	}
+
+	const handleOnInputChange = (e) => {
+		setInputValue(e.target.value);
+	};
 
 	return (
 		<form className="flex-container">
@@ -27,7 +22,8 @@ function Input(props) {
 				className="flex-item-1"
 				placeholder="keyword search"
 				name="word"
-				ref={inputRef}
+				value={inputValue}
+				onChange={handleOnInputChange}
 			></input>
 
 			<button className="flex-item-2" name="find" onClick={handleClick}>
