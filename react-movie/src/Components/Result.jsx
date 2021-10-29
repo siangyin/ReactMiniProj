@@ -5,11 +5,7 @@ import "./Result.css";
 function Result() {
 	return (
 		<article className="result">
-			<Link
-				to="/"
-				style={{ textDecoration: "none" }}
-				className="re-searchButton"
-			>
+			<Link to="/" className="re-searchButton">
 				Back
 			</Link>
 			<button type="button" className="re-searchButton">
