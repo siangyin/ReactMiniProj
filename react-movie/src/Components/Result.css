@@ -1,18 +1,22 @@
 .result {
 	margin: 5%;
 	position: relative;
-	display: flexbox;
-	/* border: 2px white solid;
+	display: flex;
+	border: 2px white solid;
 	background: rgba(255, 255, 255, 0.3);
-	border-radius: 20px; */
+	border-radius: 20px;
 }
 
+a {
+	line-height: 1.6;
+}
 .re-searchButton {
 	position: relative;
-	display: flexbox;
+
 	margin: 2.5%;
 	width: 45%;
 	height: 35px;
+	text-align: center;
 	border: 1px solid grey;
 	background: grey;
 	text-align: center;
