@@ -1,8 +1,22 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Result.css";
 
-function Result(props) {
-	return <article className="result">hello</article>;
+function Result() {
+	return (
+		<article className="result">
+			<Link
+				to="/"
+				style={{ textDecoration: "none" }}
+				className="re-searchButton"
+			>
+				Back
+			</Link>
+			<button type="button" className="re-searchButton">
+				Search again
+			</button>
+		</article>
+	);
 }
 
 export default Result;

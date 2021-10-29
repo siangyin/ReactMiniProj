@@ -2,7 +2,26 @@
 	margin: 5%;
 	position: relative;
 	display: flexbox;
-	border: 2px white solid;
+	/* border: 2px white solid;
 	background: rgba(255, 255, 255, 0.3);
-	border-radius: 20px;
+	border-radius: 20px; */
+}
+
+.re-searchButton {
+	position: relative;
+	display: flexbox;
+	margin: 2.5%;
+	width: 45%;
+	height: 35px;
+	border: 1px solid grey;
+	background: grey;
+	text-align: center;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 20px;
+}
+.re-searchButton:hover {
+	background: rgb(250, 250, 141);
+	color: grey;
 }
