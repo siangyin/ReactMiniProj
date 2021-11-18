@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import "./Search.css";
 
-function Search(props) {
+function Search({ find, setFind }) {
 	return (
 		<section className="wrap">
 			<form className="search">
@@ -9,8 +10,19 @@ function Search(props) {
 					type="text"
 					className="searchTerm"
 					placeholder="What are you looking for?"
+					value={find}
+					onChange={(e) => {
+						setFind(e.target.value);
+					}}
 				></input>
-				<button type="submit" className="searchButton">
+
+				<button
+					type="button"
+					className="searchButton"
+					onClick={() => {
+						console.log(find);
+					}}
+				>
 					🔍
 				</button>
 			</form>

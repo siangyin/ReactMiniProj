@@ -7,15 +7,19 @@ import Nav from "./Components/Nav";
 import "./App.css";
 
 function App() {
+	const [find, setFind] = useState("");
+	console.log(find);
 	return (
 		<Router>
 			<div className="App">
-				<Nav />
+				<header className="App-header">🎬 React-Movies</header>
+
 				<Switch>
 					<Route exact path="/">
-						<Search />
+						<Search find={find} setFind={setFind} />
 					</Route>
 				</Switch>
+
 				<Switch>
 					<Route path="/result">
 						<Result />
