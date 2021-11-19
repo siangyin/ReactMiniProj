@@ -2,6 +2,7 @@
 	padding: 0px;
 	margin: 0px;
 	border: 0;
+	/* box-sizing: border-box; */
 }
 
 body {
@@ -42,7 +43,7 @@ ul.nav-list {
 	display: flex;
 }
 .nav-item {
-	font-family:  Geneva, Verdana, sans-serif;
+	font-family: Geneva, Verdana, sans-serif;
 	font-size: 0.8rem;
 	align-items: flex-end;
 	float: inline-end;

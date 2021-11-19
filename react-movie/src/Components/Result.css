@@ -1,7 +1,7 @@
 .result {
 	margin: 5%;
 	position: relative;
-	display: flex;
+	display: grid;
 	border: 2px white solid;
 	background: rgba(255, 255, 255, 0.3);
 	border-radius: 20px;
@@ -12,15 +12,13 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
-.re-searchButton {
-	position: relative;
 
-	margin: 2.5%;
-	width: 45%;
+span.re-searchButton {
+	margin: 5px;
+	width: 500px;
 	height: 35px;
 	text-align: center;
-	border: 1px solid grey;
-	background: grey;
+	background-color: grey;
 	text-align: center;
 	color: #fff;
 	border-radius: 5px;

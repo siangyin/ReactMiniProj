@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Item from "./Item";
 import "./Result.css";
 
-function Result() {
+function Result({ moviesData }) {
 	return (
-		<article className="result">
+		<main>
 			<Link to="/" className="re-searchButton">
-				Back
+				<span className="re-searchButton">Back</span>
 			</Link>
-			<button type="button" className="re-searchButton">
-				Search again
-			</button>
-		</article>
+			<section className="movielist">
+				{moviesData.map((item) => {
+					return <Item key={item.id} {...item} />;
+				})}
+			</section>
+		</main>
 	);
 }
 
