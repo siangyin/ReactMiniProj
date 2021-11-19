@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./Search.css";
 
-function Search({ find, setFind, setKeyword }) {
+function Search({ setKeyword }) {
+	const [find, setFind] = useState("");
 	let history = useHistory();
 	function handlesubmit(e) {
 		e.preventDefault();
-		console.log("submitted ", find);
 
 		setKeyword(find);
 		history.push("/result");

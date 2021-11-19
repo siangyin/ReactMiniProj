@@ -6,10 +6,8 @@ import Result from "./Components/Result";
 import "./App.css";
 
 function App() {
-	const [find, setFind] = useState("");
 	const [keyword, setKeyword] = useState("");
 	const [moviesData, setMovieData] = useState([]);
-	console.log(find);
 
 	useEffect(() => {
 		async function getMovie(keyword) {
@@ -58,7 +56,7 @@ function App() {
 
 				<Switch>
 					<Route exact path="/">
-						<Search find={find} setFind={setFind} setKeyword={setKeyword} />
+						<Search setKeyword={setKeyword} />
 					</Route>
 
 					<Route path="/result">
